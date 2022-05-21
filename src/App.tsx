@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState, setPosts } from './store';
+import { PostComponent } from './components/PostComponent';
+import { Post } from './types/Post';
 
 function App() {
+  const dispath = useDispatch();
+  const posts = useSelector((state: RootState) => state.posts.posts);
+
+  useEffect(() => {
+    if (posts.length) return;
+
+    axios.get<{ data: Post[] }>('/assets/data.json').then(res => {
+      dispath(setPosts(res.data.data));
+    });  
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {posts.map((post, i) =>
+        <PostComponent post={post} index={i} key={i} />
+      )}
     </div>
   );
 }

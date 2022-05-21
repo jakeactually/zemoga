@@ -36,3 +36,103 @@
     transform: rotate(360deg);
   }
 }
+
+.post.featured-card__content {
+  text-align: left;
+  position: relative;
+  background-color: gray;
+  padding: 0;
+  margin-bottom: 50px;
+}
+
+.post .container {
+  display: flex;
+}
+
+.post .text {
+  padding: 30px;
+}
+
+.post .featured-card__title {
+  color: white;
+}
+
+.control {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 1.25em;
+}
+
+.control img {
+  width: 30px;
+}
+
+.buttons {
+  display: flex;
+  margin-top: 10px;
+}
+
+.buttons button {
+  padding: 10px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.vote-button {
+  background-color: rgba(0, 0, 0, 0.70);
+  color: white;
+  border: 2px solid white;
+  width: 100px;
+  font-size: 0.95em;
+}
+
+.selected {
+  border: 2px solid white;
+}
+
+.post .featured-card__buttons {
+  position: absolute;
+  margin: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.post .featured-card__buttons .icon-button {
+  display: flex;
+  align-items: center;
+  font-size: 2em;
+  padding: 5px 30px;
+  opacity: 0.75;
+}
+
+.post .featured-card__buttons .icon-button:last-child {
+  justify-content: flex-end;
+}
+
+.post .featured-card__buttons img {
+  width: 20px;
+}
+
+.post .percent {
+  margin: 10px;
+}
+
+@media (max-width: 600px) {
+  .post .subcontainer {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.10);
+    height: 100%;
+  }
+
+  .picture {
+    width: 100%;
+  }
+}
+
+@media (min-width: 600px) {
+  .post .subcontainer {
+    display: flex;
+  }
+}
