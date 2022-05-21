@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { persistor, voteDown, voteUp } from "../store";
 import { Post } from "../types/Post";
+import { ellipsis } from "../util";
 
 type PostProps = { post: Post, index: number };
 
@@ -44,7 +45,7 @@ export const PostComponent = ({ post, index }: PostProps) => {
                 <div className="text">
                     <h2 className="featured-card__title">{post.name}</h2>
                     <p className="featured-card__desc">
-                        {post.description}
+                        {ellipsis(post.description)}
                     </p>
                 </div>
 

@@ -42,7 +42,7 @@
   position: relative;
   background-color: gray;
   padding: 0;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 
 .post .container {
@@ -97,13 +97,14 @@
   margin: 0;
   bottom: 0;
   width: 100%;
+  font-size: 1.5em;
 }
 
 .post .featured-card__buttons .icon-button {
   display: flex;
   align-items: center;
-  font-size: 2em;
-  padding: 5px 30px;
+  padding: 0 30px;
+  height: 50px;
   opacity: 0.75;
 }
 
@@ -117,6 +118,16 @@
 
 .post .percent {
   margin: 10px;
+}
+
+#view-selector {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid black;
+  width: 100px;
+  margin-left: auto;
+  display: block;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 600px) {
@@ -134,5 +145,39 @@
 @media (min-width: 600px) {
   .post .subcontainer {
     display: flex;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    font-size: 0.75em;
+  }
+  
+  .grid .post .subcontainer {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.20);
+    height: 100%;
+    flex-direction: column;
+  }
+  
+  .grid .text {
+    padding-bottom: 0;
+  }
+  
+  .grid .buttons img {
+    width: 20px;
+  }
+  
+  .grid .picture {
+    width: 100%;
+  }
+  
+  .grid .featured-card__title {
+    font-size: 24px;
+  }
+  
+  .grid .featured-card__desc {
+    font-size: 16px;
   }
 }

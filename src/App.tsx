@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { useEffect } from 'react';
 import axios from 'axios';
@@ -10,6 +10,7 @@ import { Post } from './types/Post';
 function App() {
   const dispath = useDispatch();
   const posts = useSelector((state: RootState) => state.posts.posts);
+  const [display, setDisplay] = useState('list');
 
   useEffect(() => {
     if (posts.length) return;
@@ -21,9 +22,19 @@ function App() {
 
   return (
     <div className="App">
-      {posts.map((post, i) =>
-        <PostComponent post={post} index={i} key={i} />
-      )}
+      <select
+        id="view-selector"
+        value={display}
+        onChange={ev => setDisplay(ev.target.value)}>
+        <option value="list">List</option>
+        <option value="grid">Grid</option>
+      </select>
+
+      <main className={display}>
+        {posts.map((post, i) =>
+          <PostComponent post={post} index={i} key={i} />
+        )}
+      </main>
     </div>
   );
 }
