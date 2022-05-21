@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { persistor, voteDown, voteUp } from "../store";
 import { Post } from "../types/Post";
 import { ellipsis } from "../util";
+import { TitleIcon } from "./TitleIcon";
 
 type PostProps = { post: Post, index: number };
 
@@ -40,10 +41,19 @@ export const PostComponent = ({ post, index }: PostProps) => {
                 className="picture"
                 src={`/assets/img/${post.picture}`}>
             </img>
+
+            <div className="corner-title-icon">
+                <TitleIcon isPositive={positive > negative} />
+            </div>
             
             <div className="subcontainer">
                 <div className="text">
-                    <h2 className="featured-card__title">{post.name}</h2>
+                    <h2 className="featured-card__title">
+                        <div className="text-title-icon">
+                            <TitleIcon isPositive={positive > negative} />
+                        </div>
+                        {post.name}
+                    </h2>
                     <p className="featured-card__desc">
                         {ellipsis(post.description)}
                     </p>

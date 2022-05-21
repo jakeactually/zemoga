@@ -31,9 +31,11 @@ function App() {
       </select>
 
       <main className={display}>
-        {posts.map((post, i) =>
-          <PostComponent post={post} index={i} key={i} />
-        )}
+        <div id="content">
+          {posts.map((post, i) =>
+            <PostComponent post={post} index={i} key={i} />
+          )}
+        </div>
       </main>
     </div>
   );

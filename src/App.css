@@ -45,16 +45,17 @@
   margin-bottom: 10px;
 }
 
+.post .featured-card__title {
+  position: relative;
+  color: white;
+}
+
 .post .container {
   display: flex;
 }
 
 .post .text {
-  padding: 30px;
-}
-
-.post .featured-card__title {
-  color: white;
+  padding-top: 30px;
 }
 
 .control {
@@ -130,15 +131,67 @@
   margin-bottom: 10px;
 }
 
+.title-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+}
+
+.text-title-icon .title-icon {
+  top: 0;
+  left: -50px;
+}
+
+.corner-title-icon .title-icon {
+  top: 0;
+  left: 0;
+}
+
 @media (max-width: 600px) {
+  main {
+    width: 100%;
+    overflow: auto;
+  }
+
+  #content {
+    display: flex;
+    width: 2000px;
+  }
+
+  .post {
+    width: 400px;
+    margin-right: 10px;
+  }
+
+  .featured-card__title {
+    font-size: 20px;
+  }
+
   .post .subcontainer {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.10);
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .post .text {
+    padding-bottom: 0;
+    padding-left: 50px;
   }
 
   .picture {
     width: 100%;
+  }
+
+  .corner-title-icon {
+    display: none;
+  }
+
+  #view-selector {
+    display: none;
   }
 }
 
@@ -147,13 +200,51 @@
     display: flex;
   }
 
-  .grid {
+  .control {
+    font-size: 1em;
+  }
+
+  .list .featured-card__title {
+    font-size: 24px;
+  }
+
+  .list .featured-card__desc {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .list .subcontainer {
+    flex-grow: 1;
+  }
+
+  .list .control {
+    margin-left: auto;
+  }
+
+  .list .corner-title-icon {
+    display: block;
+  }
+
+  .list .text-title-icon, .grid .corner-title-icon {
+    display: none;
+  }
+
+  .list .picture {
+    mask-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+    height: 200px;
+  }
+
+  .grid #content {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     font-size: 0.75em;
   }
   
+  .grid .control {
+    margin-top: 0;
+  }
+
   .grid .post .subcontainer {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.20);
@@ -163,6 +254,7 @@
   
   .grid .text {
     padding-bottom: 0;
+    padding-left: 50px;
   }
   
   .grid .buttons img {
